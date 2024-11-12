@@ -1,0 +1,35 @@
+// Mobile Menu
+$(document).ready(function() {
+    // open
+    const $burger = $('.navbar-burger');
+    const $menu = $('.navbar-menu');
+
+    if ($burger.length && $menu.length) {
+        $burger.on('click', function() {
+            $menu.toggleClass('hidden');
+        });
+    }
+
+    // close
+    const $close = $('.navbar-close');
+    const $backdrop = $('.navbar-backdrop');
+
+    if ($close.length) {
+        $close.on('click', function() {
+            $menu.toggleClass('hidden');
+        });
+    }
+
+    if ($backdrop.length) {
+        $backdrop.on('click', function() {
+            $menu.toggleClass('hidden');
+        });
+    }
+
+    //FAQ
+    $('.pregunta-faq').click(function(){
+        const id = $(this).attr('data-id');
+        $('a[data-id="' + id + '"] .respuesta').toggle(500);
+        $('a[data-id="' + id + '"] i.fa-circle-down').toggleClass('fa-rotate-180');
+    });
+});
